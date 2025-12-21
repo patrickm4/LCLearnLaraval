@@ -13,8 +13,10 @@ RUN apk add --no-cache \
     libzip-dev \
     oniguruma-dev \
     openssl \
-    && docker-php-ext-install pdo_mysql zip
-
+    icu-dev \
+    && docker-php-ext-install intl \
+    && docker-php-ext-install pdo_mysql zip 
+    
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
     --install-dir=/usr/local/bin --filename=composer
